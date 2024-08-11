@@ -2,6 +2,7 @@ import { Inter as FontSans } from "next/font/google";
 import { PropsWithChildren } from "react";
 import "./globals.css";
 
+import { Layout } from "@/components/layout";
 import { ThemeProvider } from "@/components/providers";
 import { cn } from "@/lib/utils";
 
@@ -20,7 +21,11 @@ export default function RootLayout({ children }: PropsWithChildren) {
           enableSystem
           disableTransitionOnChange
         >
-          {children}
+          <Layout>
+            <Layout.Header />
+            <Layout.Main>{children}</Layout.Main>
+            <Layout.Footer></Layout.Footer>
+          </Layout>
         </ThemeProvider>
       </body>
     </html>
